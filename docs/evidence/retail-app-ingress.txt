@@ -1,0 +1,2 @@
+NAME        CLASS   HOSTS   ADDRESS                                                                  PORTS   AGE
+retail-ui   alb     *       k8s-retailap-retailui-97ec739f01-873216349.us-east-1.elb.amazonaws.com   80      21m

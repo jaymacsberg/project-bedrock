@@ -1,0 +1,6 @@
+NAME                       READY   STATUS    RESTARTS   AGE
+carts-6c84788b45-9xcbr     1/1     Running   0          24m
+catalog-5b5fc9b599-cdqp2   1/1     Running   0          78m
+checkout-8886f6cb8-2zthr   1/1     Running   0          78m
+orders-76565d747d-2qj5j    1/1     Running   0          78m
+ui-86c5d8879c-8skzx        1/1     Running   0          78m

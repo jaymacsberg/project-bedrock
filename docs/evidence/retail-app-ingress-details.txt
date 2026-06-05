@@ -1,0 +1,19 @@
+Name:             retail-ui
+Labels:           <none>
+Namespace:        retail-app
+Address:          k8s-retailap-retailui-97ec739f01-873216349.us-east-1.elb.amazonaws.com
+Ingress Class:    alb
+Default backend:  <default>
+Rules:
+  Host        Path  Backends
+  ----        ----  --------
+  *           
+              /   ui:80 (10.0.11.81:8080)
+Annotations:  alb.ingress.kubernetes.io/healthcheck-path: /
+              alb.ingress.kubernetes.io/listen-ports: [{"HTTP":80}]
+              alb.ingress.kubernetes.io/scheme: internet-facing
+              alb.ingress.kubernetes.io/target-type: ip
+Events:
+  Type    Reason                  Age   From     Message
+  ----    ------                  ----  ----     -------
+  Normal  SuccessfullyReconciled  22m   ingress  Successfully reconciled

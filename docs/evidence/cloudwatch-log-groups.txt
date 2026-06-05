@@ -1,0 +1,8 @@
+----------------------------------------------------------------
+|                       DescribeLogGroups                      |
++--------------------------------------------------------------+
+|  /aws/containerinsights/project-bedrock-cluster/application  |
+|  /aws/containerinsights/project-bedrock-cluster/dataplane    |
+|  /aws/containerinsights/project-bedrock-cluster/host         |
+|  /aws/eks/project-bedrock-cluster/cluster                    |
++--------------------------------------------------------------+

@@ -1,0 +1,11 @@
+NAME                                            READY   STATUS    RESTARTS   AGE
+aws-load-balancer-controller-845c7d9dc5-hwrnz   1/1     Running   0          33m
+aws-load-balancer-controller-845c7d9dc5-xs6jg   1/1     Running   0          33m
+aws-node-7rgbw                                  2/2     Running   0          142m
+aws-node-f5rbf                                  2/2     Running   0          142m
+coredns-65c9bdfb97-92v8c                        1/1     Running   0          142m
+coredns-65c9bdfb97-s8247                        1/1     Running   0          142m
+eks-pod-identity-agent-zd7sv                    1/1     Running   0          142m
+eks-pod-identity-agent-zm7sg                    1/1     Running   0          142m
+kube-proxy-dfqfq                                1/1     Running   0          142m
+kube-proxy-sd8ff                                1/1     Running   0          142m

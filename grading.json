@@ -1,0 +1,94 @@
+{
+  "assets_bucket_name": {
+    "sensitive": false,
+    "type": "string",
+    "value": "bedrock-assets-alt-soe-025-3646"
+  },
+  "carts_table_name": {
+    "sensitive": false,
+    "type": "string",
+    "value": "project-bedrock-carts"
+  },
+  "catalog_db_endpoint": {
+    "sensitive": false,
+    "type": "string",
+    "value": "project-bedrock-catalog-mysql.citess6oithr.us-east-1.rds.amazonaws.com"
+  },
+  "catalog_secret_arn": {
+    "sensitive": false,
+    "type": "string",
+    "value": "arn:aws:secretsmanager:us-east-1:627073649740:secret:project-bedrock/catalog-db-LNVoFU"
+  },
+  "cluster_endpoint": {
+    "sensitive": false,
+    "type": "string",
+    "value": "https://1EBC28F0BB853C4DB7D62B7A26B245DF.gr7.us-east-1.eks.amazonaws.com"
+  },
+  "cluster_name": {
+    "sensitive": false,
+    "type": "string",
+    "value": "project-bedrock-cluster"
+  },
+  "database_subnet_ids": {
+    "sensitive": false,
+    "type": [
+      "tuple",
+      [
+        "string",
+        "string"
+      ]
+    ],
+    "value": [
+      "subnet-0973f1dedc58c20c2",
+      "subnet-04fadebbbed2cb53e"
+    ]
+  },
+  "orders_db_endpoint": {
+    "sensitive": false,
+    "type": "string",
+    "value": "project-bedrock-orders-postgres.citess6oithr.us-east-1.rds.amazonaws.com"
+  },
+  "orders_secret_arn": {
+    "sensitive": false,
+    "type": "string",
+    "value": "arn:aws:secretsmanager:us-east-1:627073649740:secret:project-bedrock/orders-db-4IvZvT"
+  },
+  "private_subnet_ids": {
+    "sensitive": false,
+    "type": [
+      "tuple",
+      [
+        "string",
+        "string"
+      ]
+    ],
+    "value": [
+      "subnet-0f0ee58d1bb0af30c",
+      "subnet-091a1b03545342907"
+    ]
+  },
+  "public_subnet_ids": {
+    "sensitive": false,
+    "type": [
+      "tuple",
+      [
+        "string",
+        "string"
+      ]
+    ],
+    "value": [
+      "subnet-0d0ff30c4abf640c1",
+      "subnet-041218073c6812bc8"
+    ]
+  },
+  "region": {
+    "sensitive": false,
+    "type": "string",
+    "value": "us-east-1"
+  },
+  "vpc_id": {
+    "sensitive": false,
+    "type": "string",
+    "value": "vpc-00a332628e9616723"
+  }
+}

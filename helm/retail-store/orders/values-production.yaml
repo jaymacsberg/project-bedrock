@@ -1,0 +1,17 @@
+app:
+  persistence:
+    provider: postgres
+    endpoint: project-bedrock-orders-postgres.citess6oithr.us-east-1.rds.amazonaws.com:5432
+    database: orders
+    secret:
+      create: false
+      name: orders-db
+
+  messaging:
+    provider: in-memory
+
+postgresql:
+  create: false
+
+rabbitmq:
+  create: false

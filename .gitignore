@@ -1,0 +1,40 @@
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Terraform variables containing secrets
+*.tfvars
+!terraform.tfvars.example
+
+# AWS credentials and sensitive files
+.aws/
+credentials
+*.pem
+*.key
+
+# Kubernetes configuration
+kubeconfig
+.kube/
+
+# Environment files
+.env
+.env.*
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+
+# Generated files

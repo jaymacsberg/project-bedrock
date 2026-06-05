@@ -1,0 +1,17 @@
+{
+    "associatedAccessPolicies": [
+        {
+            "policyArn": "arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy",
+            "accessScope": {
+                "type": "namespace",
+                "namespaces": [
+                    "retail-app"
+                ]
+            },
+            "associatedAt": "2026-06-05T17:25:56.181000+01:00",
+            "modifiedAt": "2026-06-05T17:25:56.181000+01:00"
+        }
+    ],
+    "clusterName": "project-bedrock-cluster",
+    "principalArn": "arn:aws:iam::627073649740:user/bedrock-dev-view"
+}

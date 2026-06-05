@@ -1,0 +1,16 @@
+{
+    "UserName": "bedrock-dev-view",
+    "PolicyName": "bedrock-assets-upload",
+    "PolicyDocument": {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Action": [
+                    "s3:PutObject"
+                ],
+                "Effect": "Allow",
+                "Resource": "arn:aws:s3:::bedrock-assets-alt-soe-025-3646/*"
+            }
+        ]
+    }
+}

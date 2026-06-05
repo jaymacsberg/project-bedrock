@@ -1,0 +1,9 @@
+app:
+  persistence:
+    provider: in-memory
+
+  endpoints:
+    orders: http://orders:80
+
+redis:
+  create: false
