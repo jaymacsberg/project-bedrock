@@ -1,124 +1,134 @@
-# Project Bedrock
+# Project Bedrock — AWS EKS Cloud Infrastructure Capstone
 
-Production-style deployment of the AWS Retail Store Sample Application on Amazon EKS.
+Project Bedrock is a cloud infrastructure capstone focused on deploying and validating a Kubernetes-based retail application environment on AWS.
 
-## Required Standards
+The project demonstrates hands-on work with AWS, Amazon EKS, Terraform, Kubernetes, Helm, IAM, VPC networking, S3, Lambda, GitHub Actions, infrastructure validation, documentation, and troubleshooting.
 
-- AWS Region: `us-east-1`
-- EKS Cluster: `project-bedrock-cluster`
-- VPC Name: `project-bedrock-vpc`
-- Kubernetes Namespace: `retail-app`
-- Developer IAM User: `bedrock-dev-view`
-- Assets Bucket: `bedrock-assets-alt-soe-025-3646`
-- Lambda Function: `bedrock-asset-processor`
-- Required Tag: `Project = karatu-2025-capstone`
+This repository is presented as a capstone and learning project, not as a live production system.
 
-## Architecture
+---
 
-See [docs/architecture.md](docs/architecture.md).
+## Project Objectives
 
-## Application URL
+* Provision AWS infrastructure using Terraform
+* Configure remote Terraform state infrastructure
+* Deploy and configure Kubernetes resources on Amazon EKS
+* Use Helm charts and environment values for application deployment
+* Configure namespace and ALB ingress resources
+* Integrate S3 and Lambda for asset-processing functionality
+* Use GitHub Actions for Terraform CI/CD workflows
+* Generate required grading outputs
+* Document architecture, deployment steps, validation evidence, and troubleshooting notes
 
-http://k8s-retailap-retailui-97ec739f01-873216349.us-east-1.elb.amazonaws.com
+---
+
+## Technologies Used
+
+* AWS
+* Amazon EKS
+* Terraform
+* Kubernetes
+* Helm
+* IAM
+* VPC networking
+* S3
+* AWS Lambda
+* GitHub Actions
+* Bash
+
+---
 
 ## Repository Structure
 
-- `bootstrap/` — Remote Terraform state infrastructure
-- `terraform/` — AWS infrastructure
-- `helm/` — Retail Store Helm charts and production values
-- `kubernetes/` — Namespace and ALB Ingress manifests
-- `lambda/` — Asset-processing Lambda code
-- `.github/workflows/` — Terraform CI/CD workflows
-- `docs/` — Architecture and verification evidence
-- `grading.json` — Required Terraform grading outputs
+| Path                 | Purpose                                        |
+| -------------------- | ---------------------------------------------- |
+| `bootstrap/`         | Remote Terraform state infrastructure          |
+| `terraform/`         | AWS infrastructure configuration               |
+| `helm/`              | Retail Store Helm charts and production values |
+| `kubernetes/`        | Namespace and ALB Ingress manifests            |
+| `lambda/`            | Asset-processing Lambda code                   |
+| `.github/workflows/` | Terraform CI/CD workflows                      |
+| `docs/`              | Architecture and verification evidence         |
+| `grading.json`       | Required Terraform grading outputs             |
+| `Deployment Guide`   | Deployment instructions and validation steps   |
 
-## Deployment Guide
+---
 
-### 1. Bootstrap Remote State
+## Infrastructure Scope
 
-```bash
-cd bootstrap
-terraform init
-terraform apply
+The project includes configuration and deployment work for:
 
+* Terraform remote state
+* AWS infrastructure provisioning
+* Amazon EKS cluster configuration
+* Kubernetes namespace and ingress resources
+* Helm-based Retail Store deployment configuration
+* IAM and access-control requirements
+* S3 asset storage integration
+* Lambda-based asset processing
+* Terraform CI/CD workflow validation
+* Deployment evidence and troubleshooting documentation
 
-2. Deploy AWS Infrastructure
-cd ../terraform
-terraform init
-terraform plan
-terraform apply
+---
 
-3. Configure EKS Access
-aws eks update-kubeconfig \
-  --region us-east-1 \
-  --name project-bedrock-cluster
+## Deployment Overview
 
-4. Deploy the Retail Store Application
-kubectl apply -f kubernetes/namespace.yaml
+A typical deployment flow includes:
 
-helm upgrade --install catalog helm/retail-store/catalog \
-  --namespace retail-app \
-  --values helm/retail-store/catalog/values-production.yaml
+1. Bootstrap Terraform remote-state infrastructure
+2. Provision AWS infrastructure using Terraform
+3. Configure Kubernetes access for the EKS environment
+4. Deploy namespace and ingress manifests
+5. Deploy Retail Store resources using Helm
+6. Configure and validate S3/Lambda asset-processing components
+7. Run validation checks for infrastructure and application resources
+8. Generate and commit the required `grading.json` output
+9. Document architecture decisions, verification evidence, and troubleshooting notes
 
-helm upgrade --install carts helm/retail-store/carts \
-  --namespace retail-app \
-  --values helm/retail-store/carts/values-production.yaml
+Detailed deployment instructions are maintained in the Deployment Guide.
 
-helm upgrade --install orders helm/retail-store/orders \
-  --namespace retail-app \
-  --values helm/retail-store/orders/values-production.yaml
+---
 
-helm upgrade --install checkout helm/retail-store/checkout \
-  --namespace retail-app \
-  --values helm/retail-store/checkout/values-production.yaml
+## Validation and Troubleshooting
 
-helm upgrade --install ui helm/retail-store/ui \
-  --namespace retail-app \
-  --values helm/retail-store/ui/values-production.yaml
+Validation work for this capstone included:
 
-kubectl apply -f kubernetes/ingress.yaml
-CI/CD Pipeline
-Pull Request
+* Terraform formatting and validation checks
+* Terraform plan review
+* EKS and Kubernetes resource verification
+* Namespace and ingress validation
+* Helm deployment checks
+* S3 and Lambda integration checks
+* Review of required grading resources and outputs
+* Documentation of deployment evidence and troubleshooting steps
 
-A pull request targeting main triggers:
+---
 
-Terraform format check
-Terraform initialisation
-Terraform validation
-Terraform plan
-Plan output posted as a pull-request comment
-Merge to Main
+## Security and Repository Hygiene
 
-Merging into main triggers:
+This repository should not contain credentials, private keys, kubeconfig files, Terraform state files, `.env` files, or secret variable files.
 
-Terraform initialisation
-Terraform validation
-Terraform apply
+Sensitive runtime values should be managed outside the repository using AWS IAM, local environment variables, GitHub repository secrets, or secure Terraform variable handling.
 
-AWS credentials are stored as GitHub repository secrets.
+---
 
-Verification
-kubectl get pods -n retail-app
-kubectl get ingress -n retail-app
+## Status
 
-Developer read-only verification:
+Capstone / learning project.
 
-KUBECONFIG=/tmp/bedrock-dev-kubeconfig kubectl get pods -n retail-app
+The infrastructure may not currently be running, and any previously generated public endpoints may no longer be active.
 
-Developer deletion must fail:
+---
 
-KUBECONFIG=/tmp/bedrock-dev-kubeconfig kubectl delete pod POD_NAME \
-  -n retail-app \
-  --dry-run=server
-Serverless Test
-aws s3 cp test-product-image.jpg \
-  s3://bedrock-assets-alt-soe-025-3646/test-product-image.jpg \
-  --profile bedrock-dev-view
+## Career Relevance
 
-Verify CloudWatch logs contain:
+This project demonstrates practical cloud infrastructure skills relevant to junior cloud, infrastructure support, DevOps, and platform support roles, including:
 
-Image received: test-product-image.jpg
-Important
-
-Credentials, Terraform state files, kubeconfig files and secret variable files are not committed to this repository.
-EOF
+* Infrastructure as Code with Terraform
+* Kubernetes deployment on AWS EKS
+* Helm-based application deployment
+* Cloud networking and IAM configuration
+* S3/Lambda integration
+* CI/CD-oriented Terraform workflows
+* Deployment validation and troubleshooting
+* Technical documentation and operational evidence
