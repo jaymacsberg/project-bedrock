@@ -1,6 +1,3 @@
-cd ~/projects/project-bedrock
-
-cat > README.md <<'EOF'
 # Project Bedrock
 
 Production-style deployment of the AWS Retail Store Sample Application on Amazon EKS.
